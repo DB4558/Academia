@@ -1221,7 +1221,6 @@ void handle_student(int clientfd, char *username)
             count++;
             if(count>=6)
             {
-            	printf("\nAlready registered for max course\n");
             	break;
             }
             char **courses_list;
@@ -1394,7 +1393,7 @@ void handle_faculty(int clientfd, char *username)
         load_details();
 
         char msg[2 * BUF_SIZE];
-        sprintf(msg, "***********Welcome  Faculty  %s***********\n1.Add Course\n2. View Courses Offered\n3. Remove Course\n4. Update Course Detail\n5. Reset Password\n6. Signout\r\nStudents: %d\tFaculties: %d\tCourses: %d\r\n", faculty_data_main.name, student_count, faculty_count, course_count);
+        sprintf(msg, "***********Welcome  Faculty  %s***********\n1.Add Course\n2. View Courses Offered\n3. Remove Course\n4. Reset Password\n5. Signout\r\nStudents: %d\tFaculties: %d\tCourses: %d\r\n", faculty_data_main.name, student_count, faculty_count, course_count);
 
         if (write(clientfd, msg, strlen(msg)) == -1)
         {
@@ -1458,16 +1457,13 @@ void handle_faculty(int clientfd, char *username)
         break;
         case '1':
         {
-            if (faculty_data_main.courses_offered_count >= 11)
+            if (faculty_data_main.courses_offered_count >=10)
             {
-                if (write(clientfd, "Cannot Add any more courses(Max 10)\r\n", strlen("Cannot Add any more courses(Max 10)\r\n")) == -1)
-                {
-                    return;
-                }
+               break;
             }
             if (write(clientfd, "Adding a new Course\r\n", strlen("Adding a new Course\r\n")) == -1)
             {
-                break;
+                return;
             }
             course_struct course;
             cin_course(clientfd, &course, username);
@@ -1557,65 +1553,8 @@ void handle_faculty(int clientfd, char *username)
             }
             sleep(3);
         }
-        break;
-        case '4':
-        {
-            char courses_string[BUF_SIZE];
-            char temp[BUF_SIZE];
-            reset_str(courses_string, BUF_SIZE);
-            for (int i = 0; i < faculty_data_main.courses_offered_count; i++)
-            {
-                reset_str(temp, BUF_SIZE);
-                sprintf(temp, "%d: %s\n", i, faculty_data_main.courses_offered[i]);
-                strcat(courses_string, temp);
-            }
-            if (write(clientfd, courses_string, strlen(courses_string)) == -1)
-            {
-                break;
-            }
-            int course_index_of_course;
-            reset_str(buf, BUF_SIZE);
-            if (read(clientfd, buf, sizeof(buf)) == -1)
-            {
-                break;
-            }
-            if (!is_number(buf))
-            {
-                if (write(clientfd, "WRONG option\r\n", strlen("WRONG option\r\n")) == -1)
-                {
-                    break;
-                }
-                break;
-            }
-            course_index_of_course = atoi(buf);
-            int course_index;
-            course_index = validate_course_id(faculty_data_main.courses_offered[course_index_of_course]);
-            if (course_index < 0)
-            {
-                printf("Course error\n");
-                break;
-            }
-            course_struct course_data;
-            read_record(course_fd, &course_data, course_index, sizeof(course_struct));
-            bool course_status_bk = course_data.status;
-            int available_seats = course_data.available_seats;
-            char temp_course_id[SMALL_BUF_SIZE];
-            strcpy(temp_course_id, course_data.course_id);
-            cin_course(clientfd, &course_data, faculty_data_main.username);
-            course_data.status = course_status_bk;
-            course_data.available_seats = available_seats;
-            strcpy(course_data.course_id, temp_course_id);
-            printf("course index: %d\n", course_index);
-            write_course(clientfd, &course_data, course_index);
-            if (write(clientfd, "Updated Successfully\r\n", strlen("Updated Successfully\r\n")) == -1)
-            {
-                printf("client write error\n");
-                break;
-            }
-            sleep(3);
-        }
-        break;
-        case '5':
+        break;     
+       	case '4':
         {
             reset_str(buf, BUF_SIZE);
             if (write(clientfd, "Give the Password\r\n", strlen("Give the Password\r\n")) == -1)
@@ -1640,7 +1579,7 @@ void handle_faculty(int clientfd, char *username)
             sleep(3);
         }
         break;
-        case '6':
+        case '5':
             return;
         default:
             break;
