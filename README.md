@@ -25,26 +25,26 @@ clients can be run simultaneously
     
       
       
-   ```bash
-      WELCOME TO ACADEMIA PORTAL OF IIITB
-      
-      UserID: 
-      admin
-      Password: 
-      12345
-      login success
-      ************Admin*******
-      1. Add Student
-      2. View Student Detail
-      3. Add Faculty
-      4. View Faculty Detail
-      5. Activate Student
-      6. Inactivate Student
-      7. Modify Student Detail
-      8. Modify Faculty Detail
-      9.Press e to logout and exit 
-      
-      Students: 0	Faculties: 0	Courses: 0
+       ```bash
+          WELCOME TO ACADEMIA PORTAL OF IIITB
+          
+          UserID: 
+          admin
+          Password: 
+          12345
+          login success
+          ************Admin*******
+          1. Add Student
+          2. View Student Detail
+          3. Add Faculty
+          4. View Faculty Detail
+          5. Activate Student
+          6. Inactivate Student
+          7. Modify Student Detail
+          8. Modify Faculty Detail
+          9.Press e to logout and exit 
+          
+          Students: 0	Faculties: 0	Courses: 0
 
 **Faculty interface:**
      ```bash
