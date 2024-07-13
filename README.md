@@ -22,10 +22,10 @@ Max clients is set to 5(but this limitation is overcomed as new process created 
 clients can be run simultaneously
 
 **Admin Interface**
-    ```bash
+    
       
       
-      
+   ```bash
       WELCOME TO ACADEMIA PORTAL OF IIITB
       
       UserID: 
@@ -47,7 +47,7 @@ clients can be run simultaneously
       Students: 0	Faculties: 0	Courses: 0
 
 **Faculty interface:**
-    ```bash
+     ```bash
         WELCOME TO ACADEMIA PORTAL OF IIITB
         
         UserID: 
