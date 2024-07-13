@@ -39,12 +39,13 @@ This project is an Academia Management System implemented using C, Socket Progra
    git clone https://github.com/yourusername/academia-management-system.git
    cd academia-management-system
 2.**Setup:**
-step 1 make a directory data//These stores all data files
-step 2 compile and run start.c
-step 3 compile and run server.c(which has acccess to module.c)
-step 4 compile and run client.c
-Max clients is set to 5(but this limitation is overcomed as new process created at background)
-clients can be run simultaneously
+
+    step 1 make a directory data//These stores all data files
+    step 2 compile and run start.c
+    step 3 compile and run server.c(which has acccess to module.c)
+    step 4 compile and run client.c
+    Max clients is set to 5(but this limitation is overcomed as new process created at background)
+    clients can be run simultaneously
 
 **Limitations:**
 1)The Max buffer size for server allocated is 2048 bytes
