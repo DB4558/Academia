@@ -36,7 +36,7 @@ This project is an Academia Management System implemented using C, Socket Progra
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/academia-management-system.git
+   git clone https://github.com/DB4558/academia.git
    cd academia-management-system
 2.**Setup:**
 
