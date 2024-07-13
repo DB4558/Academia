@@ -25,7 +25,7 @@ clients can be run simultaneously
     
       
       
-       ```bash
+       
           WELCOME TO ACADEMIA PORTAL OF IIITB
           
           UserID: 
@@ -47,7 +47,7 @@ clients can be run simultaneously
           Students: 0	Faculties: 0	Courses: 0
 
 **Faculty interface:**
-     ```bash
+     
         WELCOME TO ACADEMIA PORTAL OF IIITB
         
         UserID: 
@@ -64,7 +64,7 @@ clients can be run simultaneously
         Students: 1	Faculties: 1	Courses: 0
 
 **Student interface:**
-  ```bash
+  
     WELCOME TO ACADEMIA PORTAL OF IIITB
     
     UserID: 
